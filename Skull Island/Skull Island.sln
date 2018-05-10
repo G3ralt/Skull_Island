@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skull Island", "Skull Island.csproj", "{D5DBA8E9-12F2-3717-342B-06F188F020F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5DBA8E9-12F2-3717-342B-06F188F020F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5DBA8E9-12F2-3717-342B-06F188F020F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5DBA8E9-12F2-3717-342B-06F188F020F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5DBA8E9-12F2-3717-342B-06F188F020F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
