@@ -26,8 +26,15 @@ public class PlayerMovement : MonoBehaviour {
 	
 	private void Update () {
 
+        if (animator.GetBool("Jump")) {
+
+            animator.SetBool("Jump", false);
+
+        }
+
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
+        var jump = Input.GetButton("Jump");    
 
         var movement = new Vector3(horizontal, 0, vertical);
 
@@ -36,13 +43,19 @@ public class PlayerMovement : MonoBehaviour {
 
         animator.SetFloat("Speed", movement.magnitude);
 
+        if (jump) {
+
+            animator.SetBool("Jump", true);
+
+        }
+        
+
         if (movement.magnitude > 0) {
 
             Quaternion newDirection = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, newDirection, Time.deltaTime * turnSpeed);
 
         }
-
         
     }
 }
