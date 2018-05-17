@@ -31,17 +31,30 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	private void Update () {
+<<<<<<< HEAD
         
         var horizontal = Input.GetAxis("Mouse X");
+=======
+               
+
+        var horizontal = Input.GetAxis("Horizontal");
+>>>>>>> 383ced89de2d5cc75287e981c5c764cee900d3a7
         var vertical = Input.GetAxis("Vertical");
         var side = Input.GetAxis("Horizontal");
         var jump = Input.GetButton("Jump");    
+<<<<<<< HEAD
         
+=======
+
+        var movement = new Vector3(horizontal, 0, vertical);
+
+>>>>>>> 383ced89de2d5cc75287e981c5c764cee900d3a7
         animator.SetFloat("Speed", vertical);
 
         transform.Rotate(Vector3.up, horizontal * turnSpeed * Time.deltaTime);
 
         if ( vertical != 0 ) {
+<<<<<<< HEAD
 
             float moveSpeed = vertical > 0 ? forwardSpeed : backwardSpeed;
             characterController.SimpleMove(transform.forward * moveSpeed * vertical);
@@ -50,5 +63,12 @@ public class PlayerMovement : MonoBehaviour {
 
         }
         
+=======
+
+            characterController.SimpleMove(transform.forward * moveSpeed * vertical);
+
+        }
+
+>>>>>>> 383ced89de2d5cc75287e981c5c764cee900d3a7
     }
 }

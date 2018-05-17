@@ -5232,6 +5232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 853046801}
+  - {fileID: 853553271}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5265,9 +5266,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b658380ef1a7d4c93043dc86d2d517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   forwardSpeed: 7.5
   backwardSpeed: 3
   turnSpeed: 50
+=======
+  moveSpeed: 7.5
+  turnSpeed: 150
+>>>>>>> 383ced89de2d5cc75287e981c5c764cee900d3a7
 --- !u!114 &590198359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6298,6 +6304,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 853553266}
+<<<<<<< HEAD
   m_LocalRotation: {x: -0.019338984, y: -0.028376365, z: 0.00054907316, w: -0.9994101}
   m_LocalPosition: {x: 88.105354, y: 2.37, z: -8.023843}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -6335,6 +6342,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+=======
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 5, z: -7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 590198356}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+>>>>>>> 383ced89de2d5cc75287e981c5c764cee900d3a7
 --- !u!4 &853876987 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d80c7433031fdee44bf3910c4b046ce7, type: 2}
@@ -7308,7 +7324,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1963204736}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1127614691 stripped
 GameObject:
@@ -9799,7 +9815,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 853553271}
   - {fileID: 1109023265}
   m_Father: {fileID: 0}
   m_RootOrder: 0
