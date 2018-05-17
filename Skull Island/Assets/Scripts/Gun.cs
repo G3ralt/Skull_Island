@@ -16,6 +16,9 @@ public class Gun : MonoBehaviour {
     [SerializeField]
     private AudioSource gunShot;
 
+    [SerializeField]
+    private GameObject hitEffect;
+
     private float timer;
     
     private Camera mainCamera;
@@ -69,6 +72,11 @@ public class Gun : MonoBehaviour {
             if (health != null) {
 
                 health.TakeDamage(damage);
+
+            } else {
+
+                var effect = Instantiate(hitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                Destroy(effect, 1f);
 
             }
 
