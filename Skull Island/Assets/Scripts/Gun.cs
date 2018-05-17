@@ -9,10 +9,7 @@ public class Gun : MonoBehaviour {
     [SerializeField]
     [Range(1,10)]
     private int damage = 1;
-
-    [SerializeField]
-    private Transform firePoint;    
-
+    
     [SerializeField]
     private ParticleSystem flash;
 
