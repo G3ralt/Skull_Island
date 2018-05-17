@@ -1,36 +1,49 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Gun : MonoBehaviour {
 
     [SerializeField]
     [Range(0f,1.5f)]
-    private float fireRate = 1;
+    private float fireRate = 0.1f;
 
     [SerializeField]
     [Range(1,10)]
     private int damage = 1;
 
     [SerializeField]
-    private Transform firePoint;
-    private float timer;
+    private Transform firePoint;    
 
     [SerializeField]
     private ParticleSystem flash;
 
     [SerializeField]
     private AudioSource gunShot;
-        
+
+    private float timer;
+    
+    private Camera mainCamera;
+
+    private void Start() {
+
+        mainCamera = Camera.main;
+
+    }
+
     void Update () {
+
         timer += Time.deltaTime;
+
         if (timer >= fireRate) {
+
             if (Input.GetButton("Fire1")) {
+
                 timer = 0;
                 FireGun();
+
             }
+
         }
+
 	}
 
     private void FireGun() {
@@ -42,13 +55,16 @@ public class Gun : MonoBehaviour {
 
         }
 
+        //Play the gunShot sound
         gunShot.Play();        
-
-        Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
-
-        Ray ray = new Ray(firePoint.position, firePoint.forward);
-        RaycastHit hitInfo;
         
+        //Fire a bullet
+        Ray ray = mainCamera.ViewportPointToRay(Vector3.one * 0.5f);
+        RaycastHit hitInfo;
+
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
+
+        //Take dmg if hit target
         if (Physics.Raycast(ray, out hitInfo, 100)) { 
 
             var health = hitInfo.collider.GetComponent<Health>();

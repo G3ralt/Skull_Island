@@ -9,14 +9,20 @@ public class PlayerMovement : MonoBehaviour {
     private Animator animator;
 
     [SerializeField]
-    private float moveSpeed = 300f;
+    private float forwardSpeed = 7.5f;
+
     [SerializeField]
-    private float turnSpeed = 5f;
+    private float backwardSpeed = 3f;
+
+    [SerializeField]
+    private float turnSpeed = 100f;
 
     private void Awake() {
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -25,35 +31,22 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	private void Update () {
-
-        if (animator.GetBool("Jump")) {
-
-            animator.SetBool("Jump", false);
-
-        }
-
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
-        var jump = Input.GetButton("Jump");    
-
-        var movement = new Vector3(horizontal, 0, vertical);
-
-
-        characterController.SimpleMove(movement * Time.deltaTime * moveSpeed);
-
-        animator.SetFloat("Speed", movement.magnitude);
-
-        if (jump) {
-
-            animator.SetBool("Jump", true);
-
-        }
         
+        var horizontal = Input.GetAxis("Mouse X");
+        var vertical = Input.GetAxis("Vertical");
+        var side = Input.GetAxis("Horizontal");
+        var jump = Input.GetButton("Jump");    
+        
+        animator.SetFloat("Speed", vertical);
 
-        if (movement.magnitude > 0) {
+        transform.Rotate(Vector3.up, horizontal * turnSpeed * Time.deltaTime);
 
-            Quaternion newDirection = Quaternion.LookRotation(movement);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newDirection, Time.deltaTime * turnSpeed);
+        if ( vertical != 0 ) {
+
+            float moveSpeed = vertical > 0 ? forwardSpeed : backwardSpeed;
+            characterController.SimpleMove(transform.forward * moveSpeed * vertical);
+            characterController.SimpleMove(transform.right * moveSpeed * side);
+            
 
         }
         
