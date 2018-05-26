@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 4052382854344258}
   - component: {fileID: 114373577374965582}
   - component: {fileID: 114669696351978332}
+  - component: {fileID: 114703573774998952}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -445,7 +446,7 @@ GameObject:
   - component: {fileID: 114981789627277330}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -756,7 +757,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387933005207962}
-  m_LocalRotation: {x: 0.034903005, y: 0.03275007, z: -0.0035853735, w: 0.9988476}
+  m_LocalRotation: {x: 0.03492434, y: 0.031082924, z: -0.003411028, w: 0.9989007}
   m_LocalPosition: {x: 0.0013860613, y: 4.3499484, z: -9.495623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1596,6 +1597,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 0.5
+--- !u!114 &114703573774998952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387933005207962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: 
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 0
+  m_MaximumEffort: 4
+  m_Damping: 0.5
+  m_OptimalTargetDistance: 0
 --- !u!114 &114981789627277330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1611,6 +1635,7 @@ MonoBehaviour:
   damage: 1
   flash: {fileID: 198316691870961768}
   gunShot: {fileID: 82392897039496214}
+  hitEffect: {fileID: 0}
 --- !u!137 &137002098841683310
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
