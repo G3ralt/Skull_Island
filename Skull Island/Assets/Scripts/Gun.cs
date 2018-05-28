@@ -4,7 +4,7 @@ public class Gun : MonoBehaviour {
 
     [SerializeField]
     [Range(0f,1.5f)]
-    private float fireRate = 0.1f;
+    private float fireRate = 0.2f;
 
     [SerializeField]
     [Range(1,10)]
@@ -48,13 +48,9 @@ public class Gun : MonoBehaviour {
 
     private void FireGun() {
         
-        //Play the gunshot flash
-        if ( !flash.isPlaying ) {
-
-            flash.Play();
-
-        }
-
+        //Play the fire effect from gun
+        flash.Play();
+        
         //Play the gunShot sound
         gunShot.Play();        
         
@@ -67,18 +63,27 @@ public class Gun : MonoBehaviour {
         //Take dmg if hit target
         if (Physics.Raycast(ray, out hitInfo, 100)) { 
 
-            var health = hitInfo.collider.GetComponent<Health>();
+            //If the collider is not trigger - skipps the sphere collider of enemies
+            if ( !hitInfo.collider.isTrigger ) {
 
-            if (health != null) {
+                //Get the health component if existing
+                var health = hitInfo.collider.GetComponent<Health>();
 
-                health.TakeDamage(damage);
+                if (health != null) {
 
-            } else {
+                    health.TakeDamage(damage);
 
-                var effect = Instantiate(hitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
-                Destroy(effect, 1f);
+                }
+                else {
+
+                    //Create the hit effect on non-enemy objects
+                    var effect = Instantiate(hitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                    Destroy(effect, 1f);
+
+                }
 
             }
+            
 
         }
 

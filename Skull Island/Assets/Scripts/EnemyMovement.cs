@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour {
+
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private AggroDetection aggroDetection;
+
     private Transform target;
 
     private void Awake() {
 
         animator = GetComponentInChildren<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        aggroDetection = GetComponent<AggroDetection>();
+        aggroDetection = GetComponentInChildren<AggroDetection>();
         aggroDetection.OnAggro += AggroDetection_OnAggro;
 
     }
@@ -21,7 +23,6 @@ public class EnemyMovement : MonoBehaviour {
     private void AggroDetection_OnAggro(Transform target) {
 
         this.target = target;
-        navMeshAgent.SetDestination(target.position);
 
     }
 
